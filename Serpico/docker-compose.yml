@@ -1,0 +1,18 @@
+version: '3'
+services:
+  serpico:
+    image: serpicoproject/serpico:latest
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: serpico
+    ports:
+      - "443:8443"
+    user: serpico
+    environment:
+      - INITIAL_USERNAME=root
+    volumes:
+      - data:/usr/share/Serpico/
+
+volumes:
+  data:
